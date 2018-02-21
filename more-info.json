@@ -1,0 +1,40 @@
+{"data":[
+{"name":"usa", "rank":"1", "ceo":"4.6%", "managers":"21%", "boards":"19.2%", "policy":"yes", "gendered":"50% - business data
+", "rating":"1.5/5
+"},
+{"name":"canada", "rank":"2", "ceo":"3%", "managers":"25%", "boards":"20.8%", "policy":"yes", "gendered":"no", "rating":"0/5
+"},
+{"name":"australia", "rank":"3", "ceo":"3%", "managers":"22%", "boards":"19.2%", "policy":"no", "gendered":"no", "rating":"0/5
+"},
+{"name":"sweden", "rank":"4", "ceo":"4%", "managers":"28%", "boards":"28.8%", "policy":"no", "gendered":"50% - business data", "rating":"0.5/5
+"},
+{"name":"uk", "rank":"5", "ceo":"2%", "managers":"22%", "boards":"22.8%", "policy":"no", "gendered":"no", "rating":""},
+{"name":"france", "rank":"6", "ceo":"0%", "managers":"33%", "boards":"30%", "policy":"no", "gendered":"50% - business data", "rating":"1.5/5
+"},
+{"name":"germany", "rank":"7", "ceo":"0%", "managers":"14%", "boards":"24.4%", "policy":"no", "gendered":"50% - business data", "rating":"0.5/5"},
+{"name":"poland", "rank":"8", "ceo":"0%", "managers":"37%", "boards":"14.6%", "policy":"no", "gendered":"no", "rating":"1/5/2015"},
+{"name":"chile", "rank":"9", "ceo":"3%", "managers":"30%", "boards":"4%", "policy":"no", "gendered":"yes", "rating":"1/5/2015"},
+{"name":"japan", "rank":"10", "ceo":"0%", "managers":"8%", "boards":"3.1%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"spain", "rank":"11", "ceo":"3%", "managers":"26%", "boards":" 18.2%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"jamaica", "rank":"12", "ceo":"0%", "managers":"35%", "boards":"22%", "policy":"no", "gendered":"no", "rating":"1/5/2015"},
+{"name":"mexico", "rank":"13", "ceo":"3%", "managers":"23%", "boards":"6%", "policy":"no", "gendered":"50% -  program data
+", "rating":"0.5/5"},
+{"name":"peru", "rank":"14", "ceo":"4%", "managers":"5%", "boards":"7%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"panama", "rank":"15", "ceo":"0%", "managers":"12%", "boards":"5%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"china", "rank":"16", "ceo":"5.6%", "managers":"25%", "boards":"8%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"south korea", "rank":"17", "ceo":"<1%", "managers":"6%", "boards":"1%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"brazil", "rank":"18", "ceo":"5%", "managers":"15%", "boards":"6%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"russia", "rank":"19", "ceo":"nd", "managers":"40%", "boards":"4.6%", "policy":"no", "gendered":"no", "rating":"1/5/2015"},
+{"name":"south africa", "rank":"20", "ceo":"3.6%", "managers":"27%", "boards":"nd", "policy":"yes", "gendered":"no", "rating":"1/5/2015"},
+{"name":"malaysia", "rank":"21", "ceo":"5%", "managers":"22%", "boards":"6%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"thailand", "rank":"22", "ceo":"nd", "managers":"27%", "boards":"10.8%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"nigeria", "rank":"23", "ceo":"8%", "managers":"21%", "boards":"6%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"turkey", "rank":"24", "ceo":"4%", "managers":"26%", "boards":"11.2%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"ugnada", "rank":"25", "ceo":"nd", "managers":"nd", "boards":"nd", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"ghana", "rank":"26", "ceo":"nd", "managers":"nd", "boards":"nd", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"tunsia", "rank":"27", "ceo":"nd", "managers":"nd", "boards":"nd", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"egypt", "rank":"28", "ceo":"nd", "managers":"nd", "boards":"nd", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"india", "rank":"29", "ceo":"4%", "managers":"15%", "boards":"9.5%", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"pakistan", "rank":"30", "ceo":"nd", "managers":"nd", "boards":"nd", "policy":"no", "gendered":"no", "rating":"0/5"},
+{"name":"bangladesh", "rank":"31", "ceo":"nd", "managers":"nd", "boards":"nd", "policy":"no", "gendered":"no", "rating":"0/5"}
+]}

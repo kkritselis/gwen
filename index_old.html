@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+  		<title>GEDI Survey Results</title>
+	    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
+	    <script type="text/javascript" src="js/skrollr.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+
+	    <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- Latest compiled and minified JavaScript -->
+	    <link type="text/css" rel="stylesheet" href="css/gedi-style.css"/>	
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="logo-row row">
+				<div class="col-xs-12">
+					<img class="logo" src="img/logo.png"/>
+				</div>
+			</div>
+			<div class="row hero-row">
+				<img class="img-responsive hidden-xs hero-img" src="img/GEDI_hero_img.jpg">
+				<img class="img-responsive visible-xs hero-img" src="img/GEDI_hero_xs.png">
+				<div class="hero-share hidden-xs">
+					<a class="li-share" href="https://www.linkedin.com/shareArticle?mini=true&url=dell.com/gewlscoreacard&title=&summary=&source="><img src="img/linked.png"/></a>
+					<a class="tw-share" href="https://twitter.com/home?status=dell.com/gewlscoreacard"><img src="img/twitter.png"/></a>
+					<a class="fb-share" href="https://www.facebook.com/sharer/sharer.php?u=dell.com/gewlscoreacard"><img src="img/fb.png"/></a>
+				</div>
+				<div class="spacer" style="clear: both;"></div>
+			</div>
+	  		<div class="row header">
+	  			<div class="col-xs-12" id="header-copy">
+	  				
+					<p >The 2015 Global Women Entrepreneur Leaders (GWEL) Scorecard is a data-driven diagnostic tool that measures, ranks and rates opportunities and challenges faced by female entrepreneurs.  The survey measures 31 countries across the globe, accounting for 70% of the world's female population.</p>
+
+				</div>
+			</div>
+			<div class="row" id="subcat-row">
+				<div class="section-title">Factors Analyzed</div>
+				<div class="flip-container hidden-sm hidden-xs">
+		  			<div class="flip3D">
+		  				<div class="front cat1">
+				  			<img src="img/cat1_white.svg"/>
+				  			<p style="font-weight:bold;">Business Environment</p>
+				  			<p>How well a country fosters growth-oriented, scaling businesses</p>
+			  			</div>
+			  			<div class="back">
+				  			<ul>
+				  				<li>Less Market Monopolies</li>
+				  				<li>Innovation Ecosystem</li>
+				  				<li>Low Corruption Prevalence</li>
+				  				<li>R&#038;D Investments</li>
+				  				<li>Ease of Doing Business</li>
+				  				<li>Capital Availablity</li> 
+				  			</ul>
+			  			</div>
+					</div>
+					<div class="flip3D">
+		  				<div class="front cat2">
+				  			<img src="img/cat2_white.svg"/>
+				  			<p style="font-weight:bold;">Gendered Access</p>
+				  			<p>Women's access to fundamental resources for business success</p>
+			  			</div>
+			  			<div class="back">
+				  			<ul>
+				  				<li>Access to Secondary Education</li>
+				  				<li>Access to the Internet</li>
+				  				<li>Access to Bank Accounts</li>
+				  				<li>Access to SME Support Programs</li>
+				  			</ul>
+			  			</div>
+					</div>
+					<div class="flip3D">
+		  				<div class="front cat3">
+				  			<img src="img/cat3_white.svg"/>
+				  			<p style="font-weight:bold;">Leadership & Rights</p>
+				  			<p>Women's legal rights, social visibility and professional freedom</p>
+			  			</div>
+			  			<div class="back">
+				  			<ul>
+				  				<li>Equal Legal Rights and Movement</li>
+				  				<li>Acceptance of Female Executives</li>
+				  				<li>Prevalence of Female Managers and Leaders</li>
+				  				<li>Female Professional Social Media Profiles</li>
+				  			</ul>
+			  			</div>
+					</div>
+					<div class="flip3D">
+		  				<div class="front cat4">
+				  			<img src="img/cat4_white.svg"/>
+				  			<p style="font-weight:bold;">Pipeline for<br>Entrepreneurship</p>
+				  			<p>Entrepreneurial spirit and skills of the female population</p>
+			  			</div>
+			  			<div class="back">
+				  			<ul>
+				  				<li>Startup Skills</li>
+				  				<li>Opportunities for Startup</li>
+				  				<li>Entrepreneur Ecosystem</li>
+				  				<li>Female Startups (M/F ratio)</li>
+				  			</ul>
+			  			</div>
+					</div>
+					<div class="flip3D">
+		  				<div class="front cat5">
+				  			<img src="img/cat5_white.svg"/>
+				  			<p style="font-weight:bold;">Potential Entrepreneur Leaders</p>
+				  			<p>Presence of high-impact female entrepreneurs</p>
+			  			</div>
+			  			<div class="back">
+				  			<ul>
+				  				<li>College-educated Startup Owners</li>
+				  				<li>Growth-oriented Startup Owners</li>
+				  				<li>Market-expanding Startup Owners</li>
+				  			</ul>
+			  			</div>
+					</div>
+				</div>
+				<div class="panel-group hidden-md hidden-lg" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-default">
+						<div class="panel-heading cat1" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"><img width="35" src="img/cat1_white.svg"/>
+	          						Business Environment  ►
+	        					</a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+	      					<div class="panel-body">
+	        					<p>How well a country fosters growth-oriented, scaling businesses</p>
+				  			
+					  			<ul>
+					  				<li>Less Market Monopolies</li>
+					  				<li>Innovation Ecosystem</li>
+					  				<li>Low Corruption Prevalence</li>
+					  				<li>R&#038;D Investments</li>
+					  				<li>Ease of Doing Business</li>
+					  				<li>Capital Availablity</li> 
+					  			</ul>
+	      					</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+	 					<div class="panel-heading cat2" role="tab" id="headingTwo">
+	    					<h4 class="panel-title">
+	    						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><img width="35" src="img/cat2_white.svg"/>
+									Gendered Access  ►
+								</a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body">
+								<p>Women's access to fundamental resources for business success</p>
+		
+					  			<ul>
+					  				<li>Access to Secondary Education</li>
+					  				<li>Access to the Internet</li>
+					  				<li>Access to Bank Accounts</li>
+					  				<li>Access to SME Support Programs</li>
+					  			</ul>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading cat3" role="tab" id="headingThree">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><img width="35" src="img/cat3_white.svg"/>
+									Leadership & Rights  ►
+								</a>
+							</h4>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+							<div class="panel-body">
+								<p>Women's legal rights, social visibility and professional freedom</p>
+
+					  			<ul>
+					  				<li>Equal Legal Rights and Movement</li>
+					  				<li>Acceptance of Female Executives</li>
+					  				<li>Prevalence of Female Managers and Leaders</li>
+					  				<li>Female Professional Social Media Profiles</li>
+					  			</ul>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading cat4" role="tab" id="headingFour">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><img width="35" src="img/cat4_white.svg"/>
+									Pipeline for Entrepreneurship  ►
+								</a>
+							</h4>
+						</div>
+						<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+							<div class="panel-body">
+								<p>Entrepreneurial spirit and skills of the female population</p>
+
+					  			<ul>
+					  				<li>Startup Skills</li>
+					  				<li>Opportunities for Startup</li>
+					  				<li>Entrepreneur Ecosystem</li>
+					  				<li>Female Startups (M/F ratio)</li>
+					  			</ul>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading cat5" role="tab" id="headingFive">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive"><img width="35" src="img/cat5_white.svg"/>
+									Potential Entrepreneur Leaders  ►
+								</a>
+							</h4>
+						</div>
+						<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+							<div class="panel-body">
+								<p>Presence of high-impact female entrepreneurs</p>
+
+					  			<ul>
+					  				<li>College-educated Startup Owners</li>
+					  				<li>Growth-oriented Startup Owners</li>
+					  				<li>Market-expanding Startup Owners</li>
+					  			</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>					
+			<div class="row" id="info-section">
+				<div class="body-left" style="width:47%;float:left;">
+					<div style="height:75px;">
+						<form class="pull-left" style="float:left;margin-top:10px;">
+							<select class="dd" id="select-country">
+								<option value="clear">Select a country</option>
+								<option value="AUS">Australia</option>
+								<option value="BGD">Bangladesh</option>
+								<option value="BRA">Brazil</option>
+								<option value="CAN">Canada</option>
+								<option value="CHL">Chile</option>
+								<option value="CHN">China</option>
+								<option value="EGY">Egypt</option>
+								<option value="FRA">France</option>
+								<option value="DEU">Germany</option>
+								<option value="GHA">Ghana</option>
+								<option value="IND">India</option>
+								<option value="JAM">Jamaica</option>
+								<option value="JPN">Japan</option>
+								<option value="KOR">South Korea</option>
+								<option value="MYS">Malaysia</option>
+								<option value="MEX">Mexico</option>
+								<option value="NGA">Nigeria</option>
+								<option value="PAK">Pakistan</option>
+								<option value="PAN">Panama</option>
+								<option value="PER">Peru</option>
+								<option value="POL">Poland</option>
+								<option value="RUS">Russia</option>
+								<option value="ZAF">South Africa</option>
+								<option value="ESP">Spain</option>
+								<option value="SWE">Sweden</option>
+								<option value="THA">Thailand</option>
+								<option value="TUN">Tunisia</option>
+								<option value="TUR">Turkey</option>
+								<option value="UGA">Uganda</option>
+								<option value="GBR">United Kingdom</option>
+								<option value="USA">United States</option>
+							</select>
+						</form>
+						<span class="down-arrow" style="float:left;margin-top:10px;">▼</span>
+						<div class="rank-box show-when-country-set hide">
+							<span >Rank</span><br>
+							<span class="rank"></span>
+						</div>
+					</div>
+					<div style="border: 1px #eee solid;overflow: inherit;height:35px;" class="show-when-country-set hide">
+						<span class="more-less" style="float:left;padding-left:10px;padding-top: 8px;cursor:pointer;">► Rating details</span>
+						<span class="more-less" style="float:left;display:none;;padding-left:10px;padding-top: 8px;cursor:pointer;">▼ Rating details</span>
+
+						<div class="more-info-box" style="float:left;display:none;border:1px #eee solid;">
+							<table style="width:100%;">
+								<thead style="text-align:left;">
+								    <tr>
+								        <th style="padding-left:30px;">
+								                <b>Category</b>
+								        </th>
+								        <th width="142">
+								                <b>Rating</b>
+								        </th>
+								        <th>
+								                <b>Target</b>
+								        </th>
+								    </tr>
+							    </thead>
+							    <tbody>
+									<tr>
+										<td style="padding-left:30px;">Percentage of women CEOs:</td>
+										<td class="ceo"></td>
+										<td>10%</td>
+									</tr>
+									<tr>
+										<td style="padding-left:30px;">Percentage of women senior managers:</td>
+										<td class="managers"></td>
+										<td>35%</td>
+									</tr>
+									<tr>
+										<td style="padding-left:30px;">Percentage of women serving on boards:</td>
+										<td class="boards"></td>
+										<td>30%</td>
+									</tr>
+									<tr>
+										<td style="padding-left:30px;">Gender procurement policy:</td>
+										<td class="policy"></td>
+										<td>yes</td>
+									</tr>
+									<tr>
+										<td style="padding-left:30px;">Collection of gendered data for entrepreneurship:</td>
+										<td class="gendered"></td>
+										<td>yes</td>
+									</tr>
+									<tr>
+										<td style="padding-left:30px;">Targets Met:</td>
+										<td class="rating"></td>
+										<td>5</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div id="chart" style="">
+						<div class="section-title">Ranked Countries</div>
+						<div id="chart-top">
+							<table>
+								<tr>
+									<td width="126"></td>
+									<td width="402"><img id="range" src="img/0_100.png"></td>
+								</tr>
+								<tr rel="USA" class="select-country-row">
+									<td>United States</td>
+									<td><div id="usa" class="unselect" style="width:71%;height:20px"></div></td>
+								</tr>
+								<tr rel="CAN" class="select-country-row">
+									<td>Canada</td>
+									<td><div id="canada" class="unselect" style="width:69%;height:20px"></div></td>
+								</tr>
+								<tr rel="AUS" class="select-country-row">
+									<td>Australia</td>
+									<td><div id="australia" class="unselect" style="width:69%;height:20px"></div></td>
+								</tr>
+								<tr rel="SWE" class="select-country-row">
+									<td>Sweden</td>
+									<td><div id="sweden" class="unselect" style="width:68%;height:20px"></div></td>
+								</tr>
+								<tr rel="GBR" class="select-country-row">
+									<td>United Kingdom</td>
+									<td><div id="uk" class="unselect" style="width:65%;height:20px"></div></td>
+								</tr>
+								<tr rel="FRA" class="select-country-row">
+									<td>France</td>
+									<td><div id="france" class="unselect" style="width:62%;height:20px"></div></td>
+								</tr>
+								<tr rel="DEU" class="select-country-row">
+									<td>Germany</td>
+									<td><div id="germany" class="unselect" style="width:61%;height:20px"></div></td>
+								</tr>
+								<tr rel="POL" class="select-country-row">
+									<td>Poland</td>
+									<td><div id="poland" class="unselect" style="width:56%;height:20px"></div></td>
+								</tr>
+								<tr rel="CHL" class="select-country-row">
+									<td>Chile</td>
+									<td><div id="chile" class="unselect" style="width:51%;height:20px"></div></td>
+								</tr>
+
+							</table>
+						</div>
+						<div id="chart-bottom" style="width:100%;display:none;overflow:hidden;">
+							<table>
+								<tr rel="JPN" class="select-country-row">
+									<td width="126">Japan</td>
+									<td width="402"><div id="japan" class="unselect" style="width:49%;height:20px"></div></td>
+								</tr>
+								<tr rel="ESP" class="select-country-row">
+									<td>Spain</td>
+									<td><div id="spain" class="unselect" style="width:49%;height:20px"></div></td>
+								</tr>
+								<tr rel="JAM" class="select-country-row">
+									<td>Jamaica</td>
+									<td><div id="jamaica" class="unselect" style="width:49%;height:20px"></div></td>
+								</tr>
+								<tr rel="MEX" class="select-country-row">
+									<td>Mexico</td>
+									<td><div id="mexico" class="unselect" style="width:46%;height:20px"></div></td>
+								</tr>
+								<tr rel="PER" class="select-country-row">
+									<td>Peru</td>
+									<td><div id="peru" class="unselect" style="width:45%;height:20px"></div></td>
+								</tr>
+								<tr rel="PAN" class="select-country-row">
+									<td>Panama</td>
+									<td><div id="panama" class="unselect" class="unselect" style="width:44%;height:20px"></div></td>
+								</tr>
+								<tr rel="CHN" class="select-country-row">
+									<td>China</td>
+									<td><div id="china" class="unselect" style="width:44%;height:20px"></div></td>
+								</tr>
+								<tr rel="KOR" class="select-country-row">
+									<td>South Korea</td>
+									<td><div id="korea" class="unselect" style="width:44%;height:20px"></div></td>
+								</tr>
+								<tr rel="BRA" class="select-country-row">
+									<td>Brazil</td>
+									<td><div id="brazil" class="unselect" style="width:43%;height:20px"></div></td>
+								</tr>
+								<tr rel="RUS" class="select-country-row">
+									<td>Russia</td>
+									<td><div id="russia" class="unselect" style="width:43%;height:20px"></div></td>
+								</tr>
+								<tr rel="ZAF" class="select-country-row">
+									<td>South Africa</td>
+									<td><div id="safrica" class="unselect" style="width:41%;height:20px"></div></td>
+								</tr>
+								<tr rel="MYS" class="select-country-row">
+									<td>Malaysia</td>
+									<td><div id="malaysia" class="unselect" style="width:40%;height:20px"></div></td>
+								</tr>
+								<tr rel="THA" class="select-country-row">
+									<td>Thailand</td>
+									<td><div id="thailand" class="unselect" style="width:39%;height:20px"></div></td>
+								</tr>
+								<tr rel="NGA" class="select-country-row">
+									<td>Nigeria</td>
+									<td><div id="nigeria" class="unselect" style="width:38%;height:20px"></div></td>
+								</tr>
+								<tr rel="TUR" class="select-country-row">
+									<td>Turkey</td>
+									<td><div id="turkey" class="unselect" style="width:36%;height:20px"></div></td>
+								</tr>
+								<tr rel="GHN" class="select-country-row">
+									<td>Ghana</td>
+									<td><div id="ghana" class="unselect" style="width:35%;height:20px"></div></td>
+								</tr>
+								<tr rel="TUN" class="select-country-row">
+									<td>Tunisia</td>
+									<td><div id="tunisia" class="unselect" style="width:29%;height:20px"></div></td>
+								</tr>
+								<tr rel="UGA" class="select-country-row">
+									<td>Uganda</td>
+									<td><div id="uganda" class="unselect" style="width:28%;height:20px"></div></td>
+								</tr>
+								<tr rel="EGY" class="select-country-row">
+									<td>Egypt</td>
+									<td><div id="egypt" class="unselect" style="width:24%;height:20px"></div></td>
+								</tr>
+								<tr rel="IND" class="select-country-row">
+									<td>India</td>
+									<td><div id="india" class="unselect" style="width:17%;height:20px"></div></td>
+								</tr>
+								<tr rel="PAK" class="select-country-row">
+									<td>Pakistan</td>
+									<td><div id="pakistan" class="unselect" style="width:14%;height:20px"></div></td>
+								</tr>
+								<tr rel="BGD" class="select-country-row">
+									<td>Bangladesh</td>
+									<td><div id="bangladesh" class="unselect" style="width:12%;height:20px"></div></td>
+								</tr>
+							</table>
+						</div>
+						<div class="view-all">
+							<div id="show-chart" style="">
+								<img id="sub-chart" src="img/view_all.png"/>
+							</div>
+							<div id="hide-chart" style="display:none;">
+								<img src="img/view_less.png"/>
+							</div>
+						</div>
+						<div id="fnb" class="row show-when-country-set">
+							<div class="col-xs-12">
+							<div class="section-title">Overview</div>
+							<p class="overview"></p>
+							<div class="section-title">Fast Facts</div>
+							<p class="ff1"></p>
+							<p class="ff2"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="body-right col-sm-6 col-xs-12" style="float:left;">
+					<div class="section-title">Factor Rankings</div>
+					<svg id="sub-graph" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="600px" height="643.536px" viewBox="0 0 600 643.536" enable-background="new 0 0 600 643.536" xml:space="preserve" preserveAspectRatio="xMinYMin meet" >
+					<g id="Layer_3">
+						<g>
+							<path fill="#15467A" d="M202.875,58.601h-32v-24h2v22h30V58.601z M200.875,54.601h-26v-9l7-9l9,9l6-5L200.875,54.601z"/>
+						</g>
+						<g>
+							<path fill="#067EB9" d="M293.479,32.601h4.5c0.547,0,1,0.453,1,1v4.5c0,0.281-0.219,0.5-0.5,0.5h-1c-0.28,0-0.5-0.219-0.5-0.5
+								v-2.094l-3.969,3.984c1.531,1.922,2.297,4.469,1.828,7.203c-0.656,3.75-3.703,6.734-7.469,7.298
+								c-2.375,0.358-4.609-0.22-6.39-1.406c-1.172,0.781-2.531,1.297-4,1.453v2.063h1.5c0.281,0,0.5,0.219,0.5,0.5v1
+								c0,0.281-0.219,0.5-0.5,0.5h-1.5v1.5c0,0.281-0.219,0.5-0.5,0.5h-1c-0.281,0-0.5-0.219-0.5-0.5v-1.5h-1.5
+								c-0.281,0-0.5-0.219-0.5-0.5v-1c0-0.281,0.219-0.5,0.5-0.5h1.5v-2.063c-4.906-0.547-8.641-5.047-7.906-10.22
+								c0.531-3.891,3.625-7.016,7.5-7.609c2.391-0.359,4.625,0.219,6.406,1.406c1.438-0.953,3.156-1.516,5-1.516
+								c2.125,0,4.078,0.75,5.609,1.969l3.984-3.969h-2.094c-0.281,0-0.5-0.219-0.5-0.5v-1C292.979,32.82,293.198,32.601,293.479,32.601z
+								 M275.979,52.601c1.234,0,2.406-0.328,3.406-0.891c-1.484-1.609-2.406-3.75-2.406-6.109s0.922-4.5,2.406-6.109
+								c-1-0.563-2.172-0.891-3.406-0.891c-3.859,0-7,3.141-7,7C268.979,49.46,272.121,52.601,275.979,52.601z M282.979,45.601
+								c0-1.906-0.765-3.625-2-4.891c-1.234,1.266-2,2.984-2,4.891s0.766,3.625,2,4.891C282.213,49.226,282.979,47.507,282.979,45.601z
+								 M292.979,45.601c0-3.859-3.141-7-7-7c-1.234,0-2.406,0.328-3.406,0.891c1.484,1.609,2.406,3.75,2.406,6.109
+								s-0.922,4.5-2.406,6.109c1,0.563,2.171,0.891,3.406,0.891C289.838,52.601,292.979,49.46,292.979,45.601z"/>
+						</g>
+						<g>
+							<path fill="#6E2B85" d="M389.914,57.859l-1.672,1.688c-0.375,0.359-0.891,0.578-1.422,0.578s-1.047-0.219-1.406-0.578
+								l-5.672-5.688c-0.375-0.359-0.594-0.875-0.594-1.406c0-0.594,0.25-1.078,0.672-1.5l-4-4l-1.969,1.969
+								c-0.141,0.141-0.328,0.219-0.531,0.219s-0.391-0.078-0.531-0.219c0.469,0.469,0.906,0.813,0.906,1.531
+								c0,0.406-0.156,0.766-0.438,1.063c-0.531,0.563-1.094,1.313-1.938,1.313c-0.391,0-0.781-0.156-1.063-0.438l-6.375-6.375
+								c-0.281-0.281-0.438-0.671-0.438-1.062c0-0.844,0.75-1.406,1.313-1.938c0.297-0.281,0.656-0.437,1.063-0.437
+								c0.719,0,1.063,0.438,1.531,0.906c-0.141-0.141-0.219-0.328-0.219-0.531s0.078-0.391,0.219-0.531l5.438-5.438
+								c0.141-0.141,0.328-0.219,0.531-0.219s0.391,0.078,0.531,0.219c-0.469-0.468-0.906-0.813-0.906-1.531
+								c0-0.406,0.156-0.766,0.438-1.063c0.531-0.562,1.094-1.312,1.938-1.312c0.391,0,0.781,0.156,1.063,0.438l6.375,6.375
+								c0.281,0.281,0.438,0.672,0.438,1.063c0,0.844-0.75,1.406-1.313,1.938c-0.297,0.281-0.655,0.438-1.063,0.438
+								c-0.719,0-1.063-0.438-1.531-0.906c0.141,0.141,0.219,0.328,0.219,0.531s-0.078,0.391-0.219,0.531l-1.969,1.969l4,4
+								c0.422-0.422,0.906-0.672,1.5-0.672c0.531,0,1.047,0.219,1.422,0.578l5.672,5.672c0.359,0.375,0.578,0.891,0.578,1.422
+								S390.273,57.5,389.914,57.859z"/>
+						</g>
+						<g>
+							<path fill="#B8285A" d="M477.566,48.062c0,0.203-0.156,0.438-0.359,0.469l-2.422,0.375c-0.125,0.406-0.297,0.797-0.5,1.188
+								c0.438,0.625,0.906,1.203,1.406,1.797c0.063,0.095,0.109,0.188,0.109,0.313c0,0.108-0.031,0.219-0.109,0.297
+								c-0.313,0.422-2.063,2.328-2.516,2.328c-0.125,0-0.234-0.047-0.328-0.109l-1.797-1.406c-0.391,0.203-0.781,0.359-1.203,0.484
+								c-0.078,0.797-0.156,1.656-0.359,2.422c-0.063,0.219-0.25,0.375-0.469,0.375h-2.906c-0.219,0-0.438-0.172-0.469-0.391
+								l-0.359-2.392c-0.406-0.125-0.797-0.297-1.172-0.483l-1.844,1.391c-0.078,0.078-0.203,0.109-0.313,0.109
+								c-0.125,0-0.234-0.047-0.328-0.125c-0.406-0.375-2.25-2.047-2.25-2.5c0-0.109,0.047-0.203,0.108-0.297
+								c0.453-0.595,0.923-1.172,1.375-1.781c-0.219-0.422-0.405-0.844-0.547-1.281l-2.375-0.375c-0.219-0.031-0.375-0.234-0.375-0.453
+								v-2.891c0-0.203,0.156-0.438,0.358-0.469l2.423-0.375c0.125-0.406,0.297-0.797,0.5-1.188c-0.438-0.625-0.906-1.203-1.406-1.797
+								c-0.063-0.094-0.108-0.203-0.108-0.313s0.03-0.219,0.108-0.313c0.313-0.422,2.063-2.313,2.517-2.313
+								c0.125,0,0.233,0.047,0.328,0.109l1.797,1.406c0.391-0.203,0.78-0.359,1.203-0.5c0.077-0.781,0.155-1.641,0.358-2.406
+								c0.063-0.219,0.25-0.375,0.469-0.375h2.906c0.219,0,0.438,0.172,0.469,0.391l0.359,2.391c0.405,0.125,0.797,0.297,1.172,0.484
+								l1.844-1.391c0.095-0.078,0.203-0.109,0.313-0.109c0.125,0,0.234,0.047,0.328,0.125c0.406,0.375,2.25,2.063,2.25,2.5
+								c0,0.109-0.047,0.203-0.109,0.297c-0.453,0.609-0.922,1.172-1.359,1.781c0.203,0.422,0.391,0.844,0.531,1.281l2.375,0.359
+								c0.219,0.047,0.375,0.25,0.375,0.469V48.062z M467.566,42.593c-2.203,0-4,1.797-4,4s1.797,4,4,4s4-1.797,4-4
+								S469.77,42.593,467.566,42.593z M487.566,39.687c0,0.234-2.016,0.453-2.328,0.484c-0.125,0.297-0.281,0.563-0.469,0.813
+								c0.141,0.313,0.797,1.875,0.797,2.156c0,0.047-0.016,0.078-0.063,0.109c-0.188,0.109-1.859,1.109-1.938,1.109
+								c-0.203,0-1.375-1.563-1.53-1.797c-0.156,0.016-0.313,0.031-0.47,0.031c-0.155,0-0.313-0.016-0.469-0.031
+								c-0.156,0.234-1.328,1.797-1.531,1.797c-0.078,0-1.75-1-1.938-1.109c-0.047-0.031-0.063-0.078-0.063-0.109
+								c0-0.266,0.656-1.844,0.797-2.156c-0.188-0.25-0.344-0.516-0.469-0.813c-0.313-0.031-2.328-0.25-2.328-0.484V37.5
+								c0-0.234,2.016-0.453,2.328-0.484c0.125-0.281,0.281-0.563,0.469-0.813c-0.141-0.313-0.797-1.891-0.797-2.156
+								c0-0.031,0.016-0.078,0.063-0.109c0.188-0.094,1.859-1.094,1.938-1.094c0.203,0,1.375,1.547,1.531,1.781
+								c0.155-0.016,0.313-0.031,0.469-0.031c0.156,0,0.313,0.016,0.47,0.031c0.438-0.609,0.905-1.219,1.438-1.75l0.094-0.031
+								c0.078,0,1.75,0.984,1.938,1.094c0.047,0.031,0.063,0.078,0.063,0.109c0,0.281-0.655,1.844-0.797,2.156
+								c0.188,0.25,0.344,0.531,0.469,0.813c0.313,0.031,2.328,0.25,2.328,0.484L487.566,39.687L487.566,39.687z M487.566,55.687
+								c0,0.234-2.016,0.453-2.328,0.484c-0.125,0.297-0.281,0.563-0.469,0.813c0.141,0.313,0.797,1.875,0.797,2.156
+								c0,0.047-0.016,0.078-0.063,0.109c-0.188,0.109-1.859,1.109-1.938,1.109c-0.203,0-1.375-1.563-1.53-1.798
+								c-0.156,0.017-0.313,0.031-0.47,0.031c-0.155,0-0.313-0.017-0.469-0.031c-0.156,0.234-1.328,1.798-1.531,1.798
+								c-0.078,0-1.75-1-1.938-1.109c-0.047-0.031-0.063-0.078-0.063-0.109c0-0.266,0.656-1.844,0.797-2.156
+								c-0.188-0.25-0.344-0.516-0.469-0.813c-0.313-0.031-2.328-0.25-2.328-0.484V53.5c0-0.234,2.016-0.453,2.328-0.484
+								c0.125-0.281,0.281-0.563,0.469-0.813c-0.141-0.313-0.797-1.892-0.797-2.156c0-0.031,0.016-0.078,0.063-0.109
+								c0.188-0.094,1.859-1.094,1.938-1.094c0.203,0,1.375,1.547,1.531,1.781c0.155-0.016,0.313-0.031,0.469-0.031
+								c0.156,0,0.313,0.016,0.47,0.031c0.438-0.609,0.905-1.219,1.438-1.75l0.094-0.031c0.078,0,1.75,0.984,1.938,1.094
+								c0.047,0.031,0.063,0.078,0.063,0.109c0,0.281-0.655,1.844-0.797,2.156c0.188,0.25,0.344,0.531,0.469,0.813
+								c0.313,0.031,2.328,0.25,2.328,0.484L487.566,55.687L487.566,55.687z M481.566,36.593c-1.094,0-2,0.906-2,2c0,1.109,0.906,2,2,2
+								c1.109,0,2-0.906,2-2S482.66,36.593,481.566,36.593z M481.566,52.593c-1.094,0-2,0.906-2,2c0,1.109,0.906,2,2,2
+								c1.109,0,2-0.906,2-2S482.66,52.593,481.566,52.593z"/>
+						</g>
+						<g>
+							<path fill="#D74527" d="M579.646,41.085l-17.5,5.5c-0.063,0.016-0.109,0.016-0.156,0.016c-0.045,0-0.093,0-0.156-0.016
+								l-10.188-3.219c-0.891,0.703-1.516,2.422-1.641,4.531c0.594,0.345,0.984,0.97,0.984,1.703c0,0.703-0.359,1.313-0.906,1.672
+								l0.906,6.767c0.016,0.141-0.031,0.28-0.125,0.391c-0.095,0.109-0.234,0.172-0.375,0.172h-3c-0.142,0-0.281-0.063-0.375-0.172
+								c-0.095-0.109-0.142-0.25-0.125-0.391l0.905-6.767c-0.547-0.358-0.905-0.969-0.905-1.672c0-0.75,0.422-1.392,1.016-1.733
+								c0.094-1.828,0.563-3.798,1.531-5.157l-5.203-1.625c-0.203-0.078-0.344-0.266-0.344-0.484s0.141-0.406,0.344-0.484l17.5-5.5
+								c0.063-0.016,0.109-0.016,0.156-0.016s0.094,0,0.155,0.016l17.5,5.5c0.203,0.078,0.345,0.266,0.345,0.484
+								S579.849,41.007,579.646,41.085z M571.989,50.601c0.125,2.203-4.483,4-10,4c-5.515,0-10.125-1.797-10-4l0.281-4.938l8.969,2.828
+								c0.25,0.077,0.5,0.108,0.75,0.108s0.5-0.031,0.75-0.108l8.969-2.828L571.989,50.601z"/>
+						</g>
+					</g>
+					<g id="Layer_2">
+						<path id="Sbangladesh" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M106.526,623.478
+							c80.349-0.514-1.548,0,80.143,0c96.077,0,0-30.461,96.31-30.461c93.785,0-0.206,14.021,93.99,14.021
+							c96.104,0-0.002-37.502,96.102-37.502c88.711,0,2.539,19.736,88.713,19.736"/>
+						<path id="Spakistan" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M88.763,607.038
+							c80.349-0.514,16.42-89.837,98.111-89.837c96.077,0-0.206,106.276,96.104,106.276c93.785,0-0.411,0,93.785,0
+							c96.104,0,0.203-53.941,96.307-53.941c88.711,0,1.79-159.208,87.964-159.208"/>
+						<path id="Sindia" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M68.951,589.272
+							c80.349-0.514,36.232,0,117.923,0c96.077,0-0.412-37.516,95.898-37.516c93.785,0,0.961-89.277,95.157-89.277
+							c96.104,0-0.963-265.97,95.141-265.97c88.711,0,1.899,338.247,88.073,338.247"/>
+						<path id="Segypt" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M70.951,570.536
+							c80.349-0.514,34.232-1,115.923-1c96.077,0-0.206-52.335,96.104-52.335c93.785,0,0.755,72.071,94.951,72.071
+							c96.104,0-0.296-163.014,95.808-163.014c88.711,0,1.232-141.059,87.406-141.059"/>
+						<path id="Suganda" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M84.158,551.757
+							c80.349-0.514,21.026,37.516,102.717,37.516c96.077,0-0.412-37.516,95.898-37.516c93.785,0,0.961-89.277,95.157-89.277
+							c96.104,0-0.963-265.97,95.141-265.97c88.711,0,1.899,338.247,88.073,338.247"/>
+						<path id="Stunisia" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M74.947,534.757
+							c80.349-0.514,30.237-125.744,111.928-125.744c96.077,0-0.206,90.188,96.104,90.188c93.785,0-0.206,52.556,93.99,52.556
+							c96.104,0,0.206-178.556,96.31-178.556c88.711,0,2.331,52.914,88.505,52.914"/>
+						<path id="Sghana" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M74.947,517.201
+							c80.349-0.514,30.237-90.429,111.928-90.429c96.077,0,1.993,196.705,98.303,196.705c93.786,0-2.405-196.705,91.792-196.705
+							c96.104,0-0.002-321.006,96.102-321.006c88.711,0,1.79,445.99,87.964,445.99"/>
+						<path id="Sturkey" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M74.947,499.201
+							c80.349-0.514,30.237-160.722,111.928-160.722c96.077,0-0.206,71.189,96.104,71.189c93.785,0-0.206,125.088,93.99,125.088
+							c96.104,0,0.206-17.556,96.31-17.556c88.711,0,1.735-376.087,87.909-376.087"/>
+						<path id="Snigeria" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M79.951,480.914
+							c80.349-0.514,25.232,126.124,106.923,126.124c96.077,0-0.206-72.281,96.104-72.281c93.785,0-0.206-35.556,93.99-35.556
+							c96.104,0,0.665-414.532,96.769-414.532c88.711,0,2.078,287.513,88.252,287.513"/>
+						<path id="Sthailand" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M85.951,464.933
+							c80.349-0.514,19.232,15.981,100.923,15.981c96.077,0-0.206-54.142,96.104-54.142c93.785,0-0.206-34.208,93.99-34.208
+							c96.104,0,0.09-127.631,96.193-127.631c88.711,0,2.447,197.268,88.621,197.268"/>
+						<path id="Smalasia" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M85.951,445.854
+							c80.349-0.514,19.232-213.816,100.923-213.816c96.077,0-0.206,105.897,96.104,105.897c93.785,0-0.206,161.266,93.99,161.266
+							c96.104,0-0.002-161.266,96.102-161.266c88.711,0,1.79-35.083,87.964-35.083"/>
+						<path id="Ssafrica" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M106.526,426.772
+							c80.349-0.514-1.342-141.06,80.349-141.06c96.077,0-0.206,195.201,96.104,195.201c93.785,0-0.206-108.159,93.99-108.159
+							c96.104,0-0.002-17.328,96.102-17.328c88.711,0,1.79-52.574,87.964-52.574"/>
+						<path id="Srussia" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M74.947,409.67
+							c85.474,0,30.237,52.531,111.928,52.531c96.077,0-0.206-160.222,96.104-160.222c93.785,0-4.202,35.956,89.994,35.956
+							c96.104,0,4.086-65.919,100.189-65.919c88.711,0,2.653,48.141,88.827,48.141"/>
+						<path id="Sbrazil" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M69.951,391.247
+							c85.474,0,35.232-35.82,116.923-35.82c96.077,0-0.206,17.33,96.104,17.33c93.785,0,0-124.643,94.196-124.643c96.104,0,0,0,96.104,0
+							c88.711,0,2.537,356.29,88.711,356.29"/>
+						<path id="Skorea" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M74.947,373.201
+							c85.474,0,30.237-125.509,111.928-125.509c96.077,0-0.233,0,96.077,0c93.785,0-0.179,159.344,94.017,159.344
+							c96.104,0-0.002,182.236,96.102,182.236c88.711,0,2.539-322.368,88.713-322.368"/>
+						<path id="Schina" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M74.947,355.427
+							c85.474,0,31.793-88.522,113.484-88.522c96.077,0-1.762,71.031,94.548,71.031c93.784,0-0.206,88.837,93.99,88.837
+							c96.104,0-0.002-230.263,96.102-230.263c88.711,0,2.539,229.605,88.713,229.605"/>
+						<path id="Spanama" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M84.158,338.479
+							c85.474,0,21.026,106.715,102.717,106.715c96.077,0-0.206-53.947,96.104-53.947c93.784,0,0.755-249.93,94.951-249.93
+							c96.104,0-0.296,88.087,95.808,88.087c88.711,0,1.123,340.132,87.297,340.132"/>
+						<path id="Ssperu" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M68.951,320.336
+							c85.474,0,36.259,214.421,117.95,214.421c96.077,0-0.027-70.982,96.283-70.982c93.784,0-0.206-160.66,93.99-160.66
+							c96.104,0,0-160.913,96.104-160.913c88.711,0,2.537,229.981,88.711,229.981"/>
+						<path id="Smexico" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M82.951,303.336
+							c85.474,0,22.259,194.421,103.95,194.421c96.077,0-0.027-52.982,96.283-52.982c93.784,0-0.206-196.66,93.99-196.66
+							c96.104,0,0-88.913,96.104-88.913c88.711,0,2.537,178.981,88.711,178.981"/>
+						<path id="Sjamaica" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M85.951,285.336
+							c85.474,0,19.259,266.421,100.95,266.421c96.077,0-0.027-231.982,96.283-231.982c93.784,0,0.794-195.66,94.99-195.66
+							c96.104,0-1,0.087,95.104,0.087c88.711,0,2.537,392.981,88.711,392.981"/>
+						<path id="Sspain" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M68.951,267.336
+							c85.474,0,36.259,52.421,117.95,52.421c96.077,0-0.027-103.982,96.283-103.982c93.784,0-0.206,15.34,93.99,15.34
+							c96.104,0,0,286.087,96.104,286.087c88.711,0,2.537-161.019,88.711-161.019"/>
+						<path id="Sjapan" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M69.684,249.141
+							c132.895,0,28.947-127.108,117.101-127.108c96.194,0,0.09,109.018,96.283,109.018c93.901,0-0.089,250.34,93.991,250.34
+							c96.104,0,0,142.087,96.104,142.087c88.711,0,2.535-447.019,88.711-447.019"/>
+						<path id="Schile" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M69.951,230.336
+							c85.474,0,35.259,142.421,116.95,142.421c96.077,0-0.027-86.982,96.283-86.982c93.784,0-0.206,70.34,93.99,70.34
+							c96.104,0,0-179.913,96.104-179.913c88.711,0,2.537,54.981,88.711,54.981"/>
+						<path id="Spoland" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M79.951,213.336
+							c85.474,0,25.259,89.421,106.95,89.421c96.077,0-0.027-35.982,96.283-35.982c93.784,0-0.206,16.34,93.99,16.34
+							c96.104,0,0,90.087,96.104,90.087c88.711,0,2.537-251.019,88.711-251.019"/>
+						<path id="Sgermany" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M92.951,196.336
+							c85.474,0,43.658-54.579,93.95-54.579c50.623,0-0.027,20.018,96.283,20.018c93.784,0-0.206,159.34,93.99,159.34
+							c96.104,0,0,141.087,96.104,141.087c88.711,0,2.537-248.019,88.711-248.019"/>
+						<path id="Sfrance" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M78.951,178.336
+							c85.474,0,57.658,33.421,107.95,33.421c50.623,0,23.232-49.982,96.283-49.982c77.363,0,28.43-20.66,93.99-20.66
+							c96.104,0,0,358.087,96.104,358.087c88.711,0,2.537-303.019,88.711-303.019"/>
+						<path id="Suk" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M127.474,161.049
+							c67.869,0,8.658-0.579,58.95-0.579c50.623,0,23.232-70.982,96.283-70.982c77.363,0,28.43,121.34,93.99,121.34
+							c96.104,0,0,270.087,96.104,270.087c88.711,0,2.537-321.019,88.711-321.019"/>
+						<path id="Ssweden" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M84.158,141.247
+							c78.947,0,61.185-53.29,102.537-52.765c50.623,0,23.233,18.821,96.283,18.821c77.337,0,28.459,34.003,93.989,34.003
+							c96.104,0,0,144.407,96.104,144.407c88.713,0,2.537-54.269,88.713-54.269"/>
+						<path id="Saustrailia" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M85.474,123.826
+							c85.474,0,50.658,71.42,100.951,71.42c50.623,0,23.232-70.982,96.283-70.982c77.363,0,28.429,70.34,93.99,70.34
+							c96.104,0,0,126.087,96.104,126.087c88.711,0,2.537-229.019,88.711-229.019"/>
+						<path id="Scanada" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M84.158,105.767
+							c71.71,0,50,70.643,102.627,70.643c50.624,0,23.233-14.982,96.283-14.982c77.337,0,28.46-55.66,93.991-55.66
+							c96.104,0,0,197.086,96.104,197.086"/>
+						<path id="Susa" fill="none" stroke="#A7A9AC" stroke-width="2" stroke-miterlimit="10" d="M110.474,88.615
+							c40.79,0.658,33.553,16.447,76.401,16.315c50.624-0.156,23.053,37.596,96.104,37.596c77.337,0,28.459-37.596,93.99-37.596
+							c96.104,0,0,223.699,96.104,223.699c88.711,0,2.537-223.299,88.711-223.299"/>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 19.0376 93.6831)" font-family="'museo-sans-for-dell-100'" font-size="15.8">1   United States</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 17.9194 111.5161)" font-family="'museo-sans-for-dell-100'" font-size="15.8">2   Canada</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 17.9526 129.3491)" font-family="'museo-sans-for-dell-100'" font-size="15.8">3   Australia</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 17.5566 147.1821)" font-family="'museo-sans-for-dell-100'" font-size="15.8">4   Sweden</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 17.9966 165.0161)" font-family="'museo-sans-for-dell-100'" font-size="15.8">5   United Kingdom</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 17.5786 182.8481)" font-family="'museo-sans-for-dell-100'" font-size="15.8">6   France</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 18.4268 200.6821)" font-family="'museo-sans-for-dell-100'" font-size="15.8">7   Germany</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 17.5005 218.5161)" font-family="'museo-sans-for-dell-100'" font-size="15.8">8   Poland</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 17.5898 236.3491)" font-family="'museo-sans-for-dell-100'" font-size="15.8">9   Chile</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 11.9888 254.1831)" font-family="'museo-sans-for-dell-100'" font-size="15.8">10   Japan</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 13.7837 272.0166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">11   Spain</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 12.6655 289.8486)" font-family="'museo-sans-for-dell-100'" font-size="15.8">12   Jamaica</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 12.6987 307.6826)" font-family="'museo-sans-for-dell-100'" font-size="15.8">13   Mexico</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 12.3027 325.5166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">14   Peru</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 12.7427 343.3486)" font-family="'museo-sans-for-dell-100'" font-size="15.8">15   Panama</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 12.3247 361.1807)" font-family="'museo-sans-for-dell-100'" font-size="15.8">16   China</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 13.1724 379.0166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">17   South Korea</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 12.2466 396.8506)" font-family="'museo-sans-for-dell-100'" font-size="15.8">18   Brazil</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 12.3354 414.6846)" font-family="'museo-sans-for-dell-100'" font-size="15.8">19   Russia</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 10.8706 432.5166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">20   South Africa</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 12.6655 450.3506)" font-family="'museo-sans-for-dell-100'" font-size="15.8">21   Malaysia</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 11.5474 468.1826)" font-family="'museo-sans-for-dell-100'" font-size="15.8">22   Thailand</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 11.5806 486.0166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">23   Nigeria</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 11.1836 503.8486)" font-family="'museo-sans-for-dell-100'" font-size="15.8">24   Turkey</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 11.6245 521.6826)" font-family="'museo-sans-for-dell-100'" font-size="15.8">25   Ghana</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 11.2056 539.5166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">26   Tunisia</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 12.0547 557.3486)" font-family="'museo-sans-for-dell-100'" font-size="15.8">27   Uganda</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 11.1284 575.1846)" font-family="'museo-sans-for-dell-100'" font-size="15.8">28   Egypt</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 11.2178 593.0166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">29   India</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 10.9038 610.8506)" font-family="'museo-sans-for-dell-100'" font-size="15.8">30   Pakistan</text>
+						<text class="change-country" rel="" transform="matrix(0.759 0 0 1 12.6987 628.6826)" enable-background="new    ">
+						<tspan x="0" y="0" font-family="'museo-sans-for-dell-100'" font-size="15.8">31   Bangladesh</tspan>
+						<tspan x="0" y="23.717" font-family="'museo-sans-for-dell-100'" font-size="15.8"> </tspan></text>
+					</g>					
+					<g id="Layer_1">
+						<line fill="none" stroke="#00447b" stroke-width="2" stroke-miterlimit="10" x1="186.875" y1="77.597" x2="186.875" y2="643.536"/>
+						<line fill="none" stroke="#007cb8" stroke-width="2" stroke-miterlimit="10" x1="282.979" y1="77.597" x2="282.979" y2="643.536"/>
+						<line fill="none" stroke="#6f2586" stroke-width="2" stroke-miterlimit="10" x1="376.969" y1="77.417" x2="376.969" y2="643.536"/>
+						<line fill="none" stroke="#b7295b" stroke-width="2" stroke-miterlimit="10" x1="473.07" y1="77.597" x2="473.07" y2="643.536"/>
+						<line fill="none" stroke="#d84325" stroke-width="2" stroke-miterlimit="10" x1="561.783" y1="77.597" x2="561.783" y2="643.536"/>
+					</g>
+					<g id="Layer_0">
+						<path id="Obangladesh" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M106.526,623.478
+							c80.349-0.514-1.548,0,80.143,0c96.077,0,0-30.461,96.31-30.461c93.785,0-0.206,14.021,93.99,14.021
+							c96.104,0-0.002-37.502,96.102-37.502c88.711,0,2.539,19.736,88.713,19.736"/>
+						<path id="Opakistan" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M88.763,607.038
+							c80.349-0.514,16.42-89.837,98.111-89.837c96.077,0-0.206,106.276,96.104,106.276c93.785,0-0.411,0,93.785,0
+							c96.104,0,0.203-53.941,96.307-53.941c88.711,0,1.79-159.208,87.964-159.208"/>
+						<path id="Oindia" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M68.951,589.272
+							c80.349-0.514,36.232,0,117.923,0c96.077,0-0.412-37.516,95.898-37.516c93.785,0,0.961-89.277,95.157-89.277
+							c96.104,0-0.963-265.97,95.141-265.97c88.711,0,1.899,338.247,88.073,338.247"/>
+						<path id="Oegypt" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M70.951,570.536
+							c80.349-0.514,34.232-1,115.923-1c96.077,0-0.206-52.335,96.104-52.335c93.785,0,0.755,72.071,94.951,72.071
+							c96.104,0-0.296-163.014,95.808-163.014c88.711,0,1.232-141.059,87.406-141.059"/>
+						<path id="Ouganda" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M84.158,551.757
+							c80.349-0.514,21.026,37.516,102.717,37.516c96.077,0-0.412-37.516,95.898-37.516c93.785,0,0.961-89.277,95.157-89.277
+							c96.104,0-0.963-265.97,95.141-265.97c88.711,0,1.899,338.247,88.073,338.247"/>
+						<path id="Otunisia" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M74.947,534.757
+							c80.349-0.514,30.237-125.744,111.928-125.744c96.077,0-0.206,90.188,96.104,90.188c93.785,0-0.206,52.556,93.99,52.556
+							c96.104,0,0.206-178.556,96.31-178.556c88.711,0,2.331,52.914,88.505,52.914"/>
+						<path id="Oghana" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M74.947,517.201
+							c80.349-0.514,30.237-90.429,111.928-90.429c96.077,0,1.993,196.705,98.303,196.705c93.786,0-2.405-196.705,91.792-196.705
+							c96.104,0-0.002-321.006,96.102-321.006c88.711,0,1.79,445.99,87.964,445.99"/>
+						<path id="Oturkey" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M74.947,499.201
+							c80.349-0.514,30.237-160.722,111.928-160.722c96.077,0-0.206,71.189,96.104,71.189c93.785,0-0.206,125.088,93.99,125.088
+							c96.104,0,0.206-17.556,96.31-17.556c88.711,0,1.735-376.087,87.909-376.087"/>
+						<path id="Onigeria" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M79.951,480.914
+							c80.349-0.514,25.232,126.124,106.923,126.124c96.077,0-0.206-72.281,96.104-72.281c93.785,0-0.206-35.556,93.99-35.556
+							c96.104,0,0.665-414.532,96.769-414.532c88.711,0,2.078,287.513,88.252,287.513"/>
+						<path id="Othailand" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M85.951,464.933
+							c80.349-0.514,19.232,15.981,100.923,15.981c96.077,0-0.206-54.142,96.104-54.142c93.785,0-0.206-34.208,93.99-34.208
+							c96.104,0,0.09-127.631,96.193-127.631c88.711,0,2.447,197.268,88.621,197.268"/>
+						<path id="Omalaysia" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M85.951,445.854
+							c80.349-0.514,19.232-213.816,100.923-213.816c96.077,0-0.206,105.897,96.104,105.897c93.785,0-0.206,161.266,93.99,161.266
+							c96.104,0-0.002-161.266,96.102-161.266c88.711,0,1.79-35.083,87.964-35.083"/>
+						<path id="Osafrica" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M106.526,426.772
+							c80.349-0.514-1.342-141.06,80.349-141.06c96.077,0-0.206,195.201,96.104,195.201c93.785,0-0.206-108.159,93.99-108.159
+							c96.104,0-0.002-17.328,96.102-17.328c88.711,0,1.79-52.574,87.964-52.574"/>
+						<path id="Orussia" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M74.947,409.67
+							c85.474,0,30.237,52.531,111.928,52.531c96.077,0-0.206-160.222,96.104-160.222c93.785,0-4.202,35.956,89.994,35.956
+							c96.104,0,4.086-65.919,100.189-65.919c88.711,0,2.653,48.141,88.827,48.141"/>
+						<path id="Obrazil" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M69.951,391.247
+							c85.474,0,35.232-35.82,116.923-35.82c96.077,0-0.206,17.33,96.104,17.33c93.785,0,0-124.643,94.196-124.643c96.104,0,0,0,96.104,0
+							c88.711,0,2.537,356.29,88.711,356.29"/>
+						<path id="Okorea" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M74.947,373.201
+							c85.474,0,30.237-125.509,111.928-125.509c96.077,0-0.233,0,96.077,0c93.785,0-0.179,159.344,94.017,159.344
+							c96.104,0-0.002,182.236,96.102,182.236c88.711,0,2.539-322.368,88.713-322.368"/>
+						<path id="Ochina" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M74.947,355.427
+							c85.474,0,31.793-88.522,113.484-88.522c96.077,0-1.762,71.031,94.548,71.031c93.784,0-0.206,88.837,93.99,88.837
+							c96.104,0-0.002-230.263,96.102-230.263c88.711,0,2.539,229.605,88.713,229.605"/>
+						<path id="Opanama" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M84.158,338.479
+							c85.474,0,21.026,106.715,102.717,106.715c96.077,0-0.206-53.947,96.104-53.947c93.784,0,0.755-249.93,94.951-249.93
+							c96.104,0-0.296,88.087,95.808,88.087c88.711,0,1.123,340.132,87.297,340.132"/>
+						<path id="Operu" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M68.951,320.336
+							c85.474,0,36.259,214.421,117.95,214.421c96.077,0-0.027-70.982,96.283-70.982c93.784,0-0.206-160.66,93.99-160.66
+							c96.104,0,0-160.913,96.104-160.913c88.711,0,2.537,229.981,88.711,229.981"/>
+						<path id="Omexico" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M82.951,303.336
+							c85.474,0,22.259,194.421,103.95,194.421c96.077,0-0.027-52.982,96.283-52.982c93.784,0-0.206-196.66,93.99-196.66
+							c96.104,0,0-88.913,96.104-88.913c88.711,0,2.537,178.981,88.711,178.981"/>
+						<path id="Ojamaica" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M85.951,285.336
+							c85.474,0,19.259,266.421,100.95,266.421c96.077,0-0.027-231.982,96.283-231.982c93.784,0,0.794-195.66,94.99-195.66
+							c96.104,0-1,0.087,95.104,0.087c88.711,0,2.537,392.981,88.711,392.981"/>
+						<path id="Ospain" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M68.951,267.336
+							c85.474,0,36.259,52.421,117.95,52.421c96.077,0-0.027-103.982,96.283-103.982c93.784,0-0.206,15.34,93.99,15.34
+							c96.104,0,0,286.087,96.104,286.087c88.711,0,2.537-161.019,88.711-161.019"/>
+						<path id="Ojapan" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M69.684,249.141
+							c132.895,0,28.947-127.108,117.101-127.108c96.194,0,0.09,109.018,96.283,109.018c93.901,0-0.089,250.34,93.991,250.34
+							c96.104,0,0,142.087,96.104,142.087c88.711,0,2.535-447.019,88.711-447.019"/>
+						<path id="Ochile" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M69.951,230.336
+							c85.474,0,35.259,142.421,116.95,142.421c96.077,0-0.027-86.982,96.283-86.982c93.784,0-0.206,70.34,93.99,70.34
+							c96.104,0,0-179.913,96.104-179.913c88.711,0,2.537,54.981,88.711,54.981"/>
+						<path id="Opoland" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M79.951,213.336
+							c85.474,0,25.259,89.421,106.95,89.421c96.077,0-0.027-35.982,96.283-35.982c93.784,0-0.206,16.34,93.99,16.34
+							c96.104,0,0,90.087,96.104,90.087c88.711,0,2.537-251.019,88.711-251.019"/>
+						<path id="Ogermany" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M92.951,196.336
+							c85.474,0,43.658-54.579,93.95-54.579c50.623,0-0.027,20.018,96.283,20.018c93.784,0-0.206,159.34,93.99,159.34
+							c96.104,0,0,141.087,96.104,141.087c88.711,0,2.537-248.019,88.711-248.019"/>
+						<path id="Ofrance" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M78.951,178.336
+							c85.474,0,57.658,33.421,107.95,33.421c50.623,0,23.232-49.982,96.283-49.982c77.363,0,28.43-20.66,93.99-20.66
+							c96.104,0,0,358.087,96.104,358.087c88.711,0,2.537-303.019,88.711-303.019"/>
+						<path id="Ouk" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M127.474,161.049
+							c67.869,0,8.658-0.579,58.95-0.579c50.623,0,23.232-70.982,96.283-70.982c77.363,0,28.43,121.34,93.99,121.34
+							c96.104,0,0,270.087,96.104,270.087c88.711,0,2.537-321.019,88.711-321.019"/>
+						<path id="Osweden" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M84.158,141.247
+							c78.947,0,61.185-53.29,102.537-52.765c50.623,0,23.233,18.821,96.283,18.821c77.337,0,28.459,34.003,93.989,34.003
+							c96.104,0,0,144.407,96.104,144.407c88.713,0,2.537-54.269,88.713-54.269"/>
+						<path id="Oaustralia" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M85.474,123.826
+							c85.474,0,50.658,71.42,100.951,71.42c50.623,0,23.232-70.982,96.283-70.982c77.363,0,28.429,70.34,93.99,70.34
+							c96.104,0,0,126.087,96.104,126.087c88.711,0,2.537-229.019,88.711-229.019"/>
+						<path id="Ocanada" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M84.158,105.767
+							c71.71,0,50,70.643,102.627,70.643c50.624,0,23.233-14.982,96.283-14.982c77.337,0,28.46-55.66,93.991-55.66
+							c96.104,0,0,197.086,96.104,197.086"/>
+						<path id="Ousa" style="stroke:#c1d82e;display:none;" fill="none" stroke="#c1d82e" stroke-width="7" stroke-miterlimit="10" d="M110.474,88.615
+							c40.79,0.658,33.553,16.447,76.401,16.315c50.624-0.156,23.053,37.596,96.104,37.596c77.337,0,28.459-37.596,93.99-37.596
+							c96.104,0,0,223.699,96.104,223.699c88.711,0,2.537-223.299,88.711-223.299"/>
+						<text class="change-country" rel="USA" transform="matrix(0.759 0 0 1 19.0376 93.6831)" font-family="'museo-sans-for-dell-100'" font-size="15.8">1   United States</text>
+						<text class="change-country" rel="CAN" transform="matrix(0.759 0 0 1 17.9194 111.5161)" font-family="'museo-sans-for-dell-100'" font-size="15.8">2   Canada</text>
+						<text class="change-country" rel="AUS" transform="matrix(0.759 0 0 1 17.9526 129.3491)" font-family="'museo-sans-for-dell-100'" font-size="15.8">3   Australia</text>
+						<text class="change-country" rel="SWE" transform="matrix(0.759 0 0 1 17.5566 147.1821)" font-family="'museo-sans-for-dell-100'" font-size="15.8">4   Sweden</text>
+						<text class="change-country" rel="GBR" transform="matrix(0.759 0 0 1 17.9966 165.0161)" font-family="'museo-sans-for-dell-100'" font-size="15.8">5   United Kingdom</text>
+						<text class="change-country" rel="FRA" transform="matrix(0.759 0 0 1 17.5786 182.8481)" font-family="'museo-sans-for-dell-100'" font-size="15.8">6   France</text>
+						<text class="change-country" rel="DEU" transform="matrix(0.759 0 0 1 18.4268 200.6821)" font-family="'museo-sans-for-dell-100'" font-size="15.8">7   Germany</text>
+						<text class="change-country" rel="POL" transform="matrix(0.759 0 0 1 17.5005 218.5161)" font-family="'museo-sans-for-dell-100'" font-size="15.8">8   Poland</text>
+						<text class="change-country" rel="CHL" transform="matrix(0.759 0 0 1 17.5898 236.3491)" font-family="'museo-sans-for-dell-100'" font-size="15.8">9   Chile</text>
+						<text class="change-country" rel="JPN" transform="matrix(0.759 0 0 1 11.9888 254.1831)" font-family="'museo-sans-for-dell-100'" font-size="15.8">10   Japan</text>
+						<text class="change-country" rel="ESP" transform="matrix(0.759 0 0 1 13.7837 272.0166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">11   Spain</text>
+						<text class="change-country" rel="JAM" transform="matrix(0.759 0 0 1 12.6655 289.8486)" font-family="'museo-sans-for-dell-100'" font-size="15.8">12   Jamaica</text>
+						<text class="change-country" rel="MEX" transform="matrix(0.759 0 0 1 12.6987 307.6826)" font-family="'museo-sans-for-dell-100'" font-size="15.8">13   Mexico</text>
+						<text class="change-country" rel="PER" transform="matrix(0.759 0 0 1 12.3027 325.5166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">14   Peru</text>
+						<text class="change-country" rel="PAN" transform="matrix(0.759 0 0 1 12.7427 343.3486)" font-family="'museo-sans-for-dell-100'" font-size="15.8">15   Panama</text>
+						<text class="change-country" rel="CHN" transform="matrix(0.759 0 0 1 12.3247 361.1807)" font-family="'museo-sans-for-dell-100'" font-size="15.8">16   China</text>
+						<text class="change-country" rel="KOR" transform="matrix(0.759 0 0 1 13.1724 379.0166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">17   South Korea</text>
+						<text class="change-country" rel="BRA" transform="matrix(0.759 0 0 1 12.2466 396.8506)" font-family="'museo-sans-for-dell-100'" font-size="15.8">18   Brazil</text>
+						<text class="change-country" rel="RUS" transform="matrix(0.759 0 0 1 12.3354 414.6846)" font-family="'museo-sans-for-dell-100'" font-size="15.8">19   Russia</text>
+						<text class="change-country" rel="ZAF" transform="matrix(0.759 0 0 1 10.8706 432.5166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">20   South Africa</text>
+						<text class="change-country" rel="MYS" transform="matrix(0.759 0 0 1 12.6655 450.3506)" font-family="'museo-sans-for-dell-100'" font-size="15.8">21   Malaysia</text>
+						<text class="change-country" rel="THA" transform="matrix(0.759 0 0 1 11.5474 468.1826)" font-family="'museo-sans-for-dell-100'" font-size="15.8">22   Thailand</text>
+						<text class="change-country" rel="NGR" transform="matrix(0.759 0 0 1 11.5806 486.0166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">23   Nigeria</text>
+						<text class="change-country" rel="TUR" transform="matrix(0.759 0 0 1 11.1836 503.8486)" font-family="'museo-sans-for-dell-100'" font-size="15.8">24   Turkey</text>
+						<text class="change-country" rel="GHN" transform="matrix(0.759 0 0 1 11.6245 521.6826)" font-family="'museo-sans-for-dell-100'" font-size="15.8">25   Ghana</text>
+						<text class="change-country" rel="TUN" transform="matrix(0.759 0 0 1 11.2056 539.5166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">26   Tunisia</text>
+						<text class="change-country" rel="UGA" transform="matrix(0.759 0 0 1 12.0547 557.3486)" font-family="'museo-sans-for-dell-100'" font-size="15.8">27   Uganda</text>
+						<text class="change-country" rel="EGY" transform="matrix(0.759 0 0 1 11.1284 575.1846)" font-family="'museo-sans-for-dell-100'" font-size="15.8">28   Egypt</text>
+						<text class="change-country" rel="IND" transform="matrix(0.759 0 0 1 11.2178 593.0166)" font-family="'museo-sans-for-dell-100'" font-size="15.8">29   India</text>
+						<text class="change-country" rel="PAK" transform="matrix(0.759 0 0 1 10.9038 610.8506)" font-family="'museo-sans-for-dell-100'" font-size="15.8">30   Pakistan</text>
+						<text class="change-country" rel="BGD" transform="matrix(0.759 0 0 1 12.6987 628.6826)" font-family="'museo-sans-for-dell-100'" font-size="15.8">31   Bangladesh</text>
+					</g>
+					</svg>
+					<div id="globe-container" class="hidden-sm hidden-xs">
+						<div id="map-globe" class="hidden-sm hidden-xs"></div>
+						<h2 id="map-globe-country-title" class="hide show-when-country-set" class="hidden-sm hidden-xs"></h2>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="middle-copy">
+				<p>Even in countries where women enjoy equal rights, they are significantly less likely to feel that they have the skills to start a business than their male counterparts.  If women had the same access to resources and networks as men, and were starting businesses at the same rate, the growth-oriented startups and jobs created would provide a significant positive economic impact for local and global economies.</p>
+
+				<p>By identifying key areas where progress is needed, and by leveraging favorable conditions that already exist, we can help create an environment that promotes and supports high-impact female entrepreneurship across the globe.</p>
+			</div>
+			<div class="row" id="tbd">
+				<div class="img-responsive hidden-xs" style="width:1200px;height:350px;margin-left: auto;margin-right: auto;">
+					<img src="img/share1.png"/>
+					<img src="img/share2.png"/>
+				</div>
+				<img class="img-responsive visible-xs" src="img/share1xs.png"/>
+				<img class="img-responsive visible-xs" src="img/share2xs.png"/>
+			</div>
+			<div class="row" id="tbd2">
+				<div class="img-responsive hidden-xs" style="width:1200px;height:350px;margin-left: auto;margin-right: auto;">
+					<img src="img/share3.png"/>
+					<img src="img/share4.png"/>
+				</div>
+				<img class="img-responsive visible-xs" src="img/share3xs.png"/>
+				<img class="img-responsive visible-xs" src="img/share4xs.png"/>
+			</div>
+			<div class="row" id="footer">
+				<img class="img-responsive hidden-xs" src="img/footer.png"/>
+				<img class="img-responsive visible-xs" src="img/footer_xs.png">
+			</div>
+		</div>
+	    <script type="text/javascript" src="js/gedi.js"></script>
+
+	</body>
+</html>
